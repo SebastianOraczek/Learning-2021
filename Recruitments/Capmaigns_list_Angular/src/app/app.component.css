@@ -1,0 +1,8 @@
+.app {
+    min-height: 100vh;
+    height: 100%;
+    overflow: hidden;
+    background: #EECDA3;
+    background: -webkit-linear-gradient(to right, #EF629F, #EECDA3);
+    background: linear-gradient(to right, #EF629F, #EECDA3);
+}

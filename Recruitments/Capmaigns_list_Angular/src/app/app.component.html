@@ -1,0 +1,10 @@
+<main class="app">
+    <div *ngIf="isFormActive; else elseBlock">
+        <app-new-form (isFormActiveFalse)="isFormActiveFalse()" [allCampaigns]="allCampaigns"></app-new-form>
+    </div>
+    <ng-template #elseBlock>
+        <app-campaigns-list [allCampaigns]="allCampaigns" (removeCampaign)="removeCampaign($event)"
+            (isFormActiveTrue)="isFormActiveTrue()" (isEditFormActiveTrue)="isFormActiveTrue()">
+        </app-campaigns-list>
+    </ng-template>
+</main>

@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+
+h1 {
+    font-family: 'Merienda', cursive;
+}
+
+p, li, label {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.inside-check {
+    background-color: white;
+    border-radius: 4px;
+}
+
+.inside-check > label {
+    margin-left: 0.5rem;
+}

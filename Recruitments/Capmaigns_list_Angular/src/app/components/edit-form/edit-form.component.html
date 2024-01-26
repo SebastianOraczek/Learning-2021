@@ -1,0 +1,74 @@
+<section>
+    <h1 class="d-flex justify-content-center mb-4 mt-4 display-4">Edit Campaign</h1>
+    <div class="row">
+        <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-6 offset-sm-3">
+            <form>
+                <div class="mb-3">
+                    <input class="form-control" type="text" name="name" id="name" placeholder="Campaign name"
+                        value={{editedName}} (change)="changeName($event)" autofocus>
+                </div>
+                <div class="form-floating">
+                    <select class="form-select mb-2" id="town" name="town" value={{editedTown}}
+                        (change)="changeTown($event)">
+                        <option selected value="Cracow">Cracow</option>
+                        <option value="Wroclaw">Wroclaw</option>
+                        <option value="Warsaw">Warsaw</option>
+                        <option value="Berlin">Berlin</option>
+                        <option value="Madrid">Madrid</option>
+                    </select>
+                    <label for="town">Select city</label>
+                </div>
+                <div class="mb-2">
+                    <span>
+                        <label for="campaignFund" class="form-label">Campaign Fund</label>
+                    </span>
+                    <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input class="form-control" type="number" name="campaignFund" id="campaignFund"
+                            value={{editedCampaignFund}} (change)="changeCampaignFund($event)">
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <span>
+                        <label for="bidAmount" class="form-label">Bid Amount</label>
+                    </span>
+                    <div class=" input-group">
+                        <span class="input-group-text">$</span>
+                        <input class="form-control" type="number" name="bidAmount" id="bidAmount"
+                            value={{editedBidAmount}} (change)="changeBidAmount($event)">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <span>
+                        <label for="radius" class="form-label">Radius</label>
+                    </span>
+                    <div class=" input-group">
+                        <input class="form-control" type="number" name="radius" id="radius" value={{editedRadius}}
+                            (change)="changeRadius($event)">
+                        <span class="input-group-text">km</span>
+                    </div>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" id="keywords" name="keywords" value={{editedKeywords}}
+                        (change)="changeKeywords($event)"></textarea>
+                    <label for="keywords">Keywords:</label>
+                </div>
+                <div class="form-check mb-3">
+                    <div class="inside-check">
+                        <input class="form-check-input" id="status" name="status" type="checkbox"
+                            checked={{editedStatus}} (change)="changeStatus()">
+                        <label class="form-check-label" for="status">
+                            Is Sold
+                        </label>
+                    </div>
+                </div>
+            </form>
+            <div>
+                <button class="btn btn-primary" (click)="editFormFalse.emit()">Cancel</button>
+                <button class="btn btn-info text-white ms-2" (click)="handleEdit(id)">
+                    Edit
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

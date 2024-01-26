@@ -1,0 +1,75 @@
+<section class="form">
+    <h1 class="d-flex justify-content-center mb-4 mt-4 display-4">Add a new Campaign</h1>
+    <div class="row">
+        <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-6 offset-sm-3">
+            <form>
+                <div class="mb-3">
+                    <input class="form-control" type="text" name="name" id="name" value={{name}}
+                        (change)="handleName($event)" placeholder="Campaign name" autofocus>
+                </div>
+                <div class="form-floating">
+                    <select class="form-select mb-2" id="town" name="town" (change)="handleTown($event)">
+                        <option selected>Choose city</option>
+                        <option value="Cracow">Cracow</option>
+                        <option value="Wroclaw">Wroclaw</option>
+                        <option value="Warsaw">Warsaw</option>
+                        <option value="Berlin">Berlin</option>
+                        <option value="Madrid">Madrid</option>
+                    </select>
+                    <label for="town">Select city</label>
+                </div>
+                <div class="mb-2">
+                    <span>
+                        <label for="campaignFund" class="form-label">Campaign Fund</label>
+                    </span>
+                    <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input class="form-control" type="number" name="campaignFund" id="campaignFund"
+                            value={{campaignFund}} (change)="handleCampaignFund($event)">
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <span>
+                        <label for="bidAmount" class="form-label">Bid Amount</label>
+                    </span>
+                    <div class=" input-group">
+                        <span class="input-group-text">$</span>
+                        <input class="form-control" type="number" name="bidAmount" id="bidAmount" value={{bidAmount}}
+                            (change)="handleBidAmount($event)">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <span>
+                        <label for="radius" class="form-label">Radius</label>
+                    </span>
+                    <div class=" input-group">
+                        <input class="form-control" type="number" name="radius" id="radius" value={{radius}}
+                            (change)="handleRadius($event)">
+                        <span class="input-group-text">km</span>
+                    </div>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" id="keywords" name="keywords" value={{keywords}}
+                        (change)="handleKeywords($event)"></textarea>
+                    <label for="keywords">Keywords:</label>
+                </div>
+                <div class="form-check mb-3">
+                    <div class="inside-check">
+                        <input class="form-check-input" id="status" name="status" type="checkbox" value="{{status}}"
+                            (change)="handleStatus()">
+                        <label class="form-check-label" for="status">
+                            Is Sold
+                        </label>
+                    </div>
+                </div>
+            </form>
+            <div>
+                <button (click)="isFormActiveFalse.emit()" class="btn btn-primary">Cancel</button>
+                <button (click)="addCampaign(name, campaignFund, town, bidAmount, radius, status, keywords)"
+                    class="btn btn-success ms-2">
+                    Add Campaign
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

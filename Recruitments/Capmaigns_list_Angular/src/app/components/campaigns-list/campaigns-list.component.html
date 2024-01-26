@@ -1,0 +1,39 @@
+<section>
+    <div *ngIf="editForm; else elseBlock">
+        <app-edit-form (editFormFalse)="editFormFalse()" [allCampaigns]="allCampaigns" [editedName]="editedName"
+            [editedTown]="editedTown" [editedCampaignFund]="editedCampaignFund" [editedBidAmount]="editedBidAmount"
+            [editedRadius]="editedRadius" [editedStatus]="editedStatus" [editedKeywords]="editedKeywords" [id]="id">
+        </app-edit-form>
+    </div>
+    <ng-template #elseBlock>
+        <h1 class="d-flex justify-content-center mb-5 mt-4 display-4">All Campaigns</h1>
+        <div class="row">
+            <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-6 offset-sm-3">
+                <div *ngFor="let campaign of allCampaigns">
+                    <div class="card mb-3">
+                        <p class="card-header">Campaign name: {{campaign.name}}</p>
+                        <div class="card-body">
+                            <ul>
+                                <li>City: {{campaign.town}}</li>
+                                <li>Radius: {{campaign.radius}}km</li>
+                                <li>Campaign fund: {{campaign.campaignFund}}$</li>
+                                <li>Bid Amount: {{campaign.bidAmount}}$</li>
+                                <li>Is sold: {{campaign.status}}</li>
+                            </ul>
+                            <p class="card-text">Keywords: {{campaign.keywords}}</p>
+                            <div class="buttons">
+                                <button class="btn btn-danger"
+                                    (click)="removeCampaign.emit(campaign.id)">Remove</button>
+                                <button class="btn btn-info text-white ms-2"
+                                    (click)="editFormTrue(campaign.id)">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button (click)="isFormActiveTrue.emit()" class="btn btn-primary">New Form</button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</section>
